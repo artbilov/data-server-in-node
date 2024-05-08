@@ -30,9 +30,7 @@ function handleRequest(request, response) {
 const page = `<script>
   const body = JSON.stringify({first: 'John', last: 'Doe', age: 33});
 
-  setTimeout(() => document.body.innerText += 'sent: ' + body + '\\n');
-  
   fetch('/', {method: 'POST', body})
     .then(response => response.json())
-    .then(data => document.body.append('received: ' + JSON.stringify(data)));
+    .then(data => document.body.innerText += 'sent: ' + body + '\\n' + 'received: ' + JSON.stringify(data));
 </script>`;
