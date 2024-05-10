@@ -20,9 +20,12 @@ function handleRequest(request, response) {
     
     console.log('received:', body);
     console.log('sent:', entries);
+   
     response.writeHead(404, {
       'Content-Type': 'text/json',
       'Access-Control-Allow-Origin': '*',
+      'Access-Control-Allow-Methods': 'GET, POST, OPTIONS, PUT, PATCH, DELETE, HEAD',
+      'Access-Control-Allow-Headers': 'Content-Type, Authorization',
     }).end(json);
   })
 }
