@@ -20,7 +20,7 @@ function handleRequest(request, response) {
     
     console.log('received:', body);
     console.log('sent:', entries);
-    response.writeHead(200, {
+    response.writeHead(404, {
       'Content-Type': 'text/json',
       'Access-Control-Allow-Origin': '*',
     }).end(json);
