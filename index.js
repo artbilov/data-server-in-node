@@ -21,7 +21,7 @@ function handleRequest(request, response) {
     console.log('received:', body);
     console.log('sent:', entries);
    
-    response.writeHead(404, {
+    response.writeHead(request.method === 'OPTIONS' ? 200 : 404, {
       'Content-Type': 'text/json',
       'Access-Control-Allow-Origin': '*',
       'Access-Control-Allow-Methods': 'GET, POST, OPTIONS, PUT, PATCH, DELETE, HEAD',
@@ -34,7 +34,7 @@ function handleRequest(request, response) {
 const page = `<script>
   const body = JSON.stringify({first: 'John', last: 'Doe', age: 33});
 
-  fetch('/', {method: 'POST', body})
+  fetch('https://data-server-in-node.onrender.com/', {method: 'POST', body})
     .then(response => response.json())
     .then(data => document.body.innerText += 'sent: ' + body + '\\n' + 'received: ' + JSON.stringify(data));
 </script>`;
