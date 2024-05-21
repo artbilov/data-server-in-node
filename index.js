@@ -25,7 +25,7 @@ function handleRequest(request, response) {
       'Content-Type': 'text/json',
       'Access-Control-Allow-Origin': '*',
       'Access-Control-Allow-Methods': 'GET, POST, OPTIONS, PUT, PATCH, DELETE, HEAD',
-      'Access-Control-Allow-Headers': 'Content-Type, Authorization',
+      'Access-Control-Allow-Headers': '*',
       'Set-Cookie': 'foo=bar'
     }).end(json);
   })
